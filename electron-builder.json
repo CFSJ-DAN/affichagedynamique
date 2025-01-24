@@ -1,0 +1,23 @@
+{
+  "appId": "com.stackblitz.digital-signage-player",
+  "productName": "Digital Signage Player",
+  "directories": {
+    "output": "releases"
+  },
+  "files": [
+    "dist/**/*",
+    "electron/**/*"
+  ],
+  "win": {
+    "target": "nsis",
+    "icon": "build/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Digital Signage Player",
+    "include": "build/installer.nsh"
+  }
+}
