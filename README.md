@@ -25,6 +25,7 @@ Player d'affichage dynamique pour Windows avec gestion du contenu hors ligne.
 
 ## Structure des dossiers
 
+<<<<<<< HEAD
 ```
 C:\APPS\affichagedynamique\
 ├── content\     # Médias (images, vidéos)
@@ -34,6 +35,17 @@ C:\APPS\affichagedynamique\
 ## Développement
 
 ```bash
+=======
+\`\`\`
+C:\APPS\affichagedynamique\
+├── content\     # Médias (images, vidéos)
+└── db\         # Base de données locale
+\`\`\`
+
+## Développement
+
+\`\`\`bash
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
 # Installation des dépendances
 npm install
 
@@ -45,4 +57,8 @@ npm run build
 
 # Création du package d'installation
 npm run build:electron
+<<<<<<< HEAD
 ```
+=======
+\`\`\`
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd

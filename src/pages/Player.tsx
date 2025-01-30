@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react';
+=======
+import React from 'react';
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
 import { useParams } from 'react-router-dom';
 import OfflinePlayer from '../components/player/OfflinePlayer';
 
 const Player: React.FC = () => {
   const { screenId } = useParams<{ screenId: string }>();
 
+<<<<<<< HEAD
   useEffect(() => {
     // Enter fullscreen mode on start
     const enterFullscreen = async () => {
@@ -35,21 +40,31 @@ const Player: React.FC = () => {
     };
   }, []);
 
+=======
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
   if (!screenId) {
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center">
         <div className="text-white text-2xl">
+<<<<<<< HEAD
           Screen not found
+=======
+          Écran non trouvé
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
         </div>
       </div>
     );
   }
 
+<<<<<<< HEAD
   return (
     <div className="fixed inset-0 bg-black">
       <OfflinePlayer screenId={screenId} />
     </div>
   );
+=======
+  return <OfflinePlayer screenId={screenId} />;
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
 };
 
 export default Player;

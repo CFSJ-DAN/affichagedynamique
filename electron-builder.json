@@ -9,12 +9,16 @@
     "electron/**/*"
   ],
   "win": {
+<<<<<<< HEAD
     "target": [
       {
         "target": "nsis",
         "arch": ["x64"]
       }
     ],
+=======
+    "target": "nsis",
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
     "icon": "build/icon.ico"
   },
   "nsis": {
@@ -23,6 +27,7 @@
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true,
     "shortcutName": "Digital Signage Player",
+<<<<<<< HEAD
     "perMachine": true,
     "deleteAppDataOnUninstall": true
   },
@@ -33,4 +38,8 @@
       "filter": ["**/*"]
     }
   ]
+=======
+    "include": "build/installer.nsh"
+  }
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
 }

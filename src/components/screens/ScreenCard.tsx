@@ -29,8 +29,13 @@ const ScreenCard: React.FC<ScreenCardProps> = ({
   };
 
   const handleDownload = () => {
+<<<<<<< HEAD
     // Ouvrir la page des releases GitHub dans un nouvel onglet
     window.open('https://github.com/CFSJ-DAN/affichagedynamique/releases/latest', '_blank');
+=======
+    // Ouvrir une nouvelle fenêtre avec le lien de téléchargement
+    window.open('https://github.com/yourusername/digital-signage-player/releases/latest', '_blank');
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
   };
 
   return (
