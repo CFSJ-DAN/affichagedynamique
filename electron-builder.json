@@ -1,0 +1,36 @@
+{
+  "appId": "com.stackblitz.digital-signage-player",
+  "productName": "Digital Signage Player",
+  "directories": {
+    "output": "releases"
+  },
+  "files": [
+    "dist/**/*",
+    "electron/**/*"
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "build/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Digital Signage Player",
+    "perMachine": true,
+    "deleteAppDataOnUninstall": true
+  },
+  "extraResources": [
+    {
+      "from": "build/",
+      "to": "build",
+      "filter": ["**/*"]
+    }
+  ]
+}
