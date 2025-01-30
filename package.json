@@ -2,19 +2,46 @@
   "name": "digital-signage-player",
   "private": true,
   "version": "1.0.0",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  "type": "module",
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
   "main": "electron/main.cjs",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+<<<<<<< HEAD
     "build:electron": "electron-builder --win --config electron-builder.json",
     "preview": "vite preview",
     "start": "electron ."
+=======
+<<<<<<< HEAD
+    "build:electron": "electron-builder --win --config electron-builder.json",
+    "preview": "vite preview",
+    "start": "electron ."
+=======
+    "build:electron": "npm run build && electron-builder",
+    "preview": "vite preview",
+    "start": "electron .",
+    "release": "npm run build && electron-builder --publish always"
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
   },
   "dependencies": {
     "@dnd-kit/core": "^6.1.0",
     "@dnd-kit/sortable": "^8.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@supabase/supabase-js": "^2.39.3",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    "electron-store": "^8.1.0",
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
     "lucide-react": "^0.344.0",
     "lz-string": "^1.5.0",
     "react": "^18.3.1",
@@ -30,11 +57,29 @@
     "autoprefixer": "^10.4.18",
     "electron": "^29.1.0",
     "electron-builder": "^24.13.3",
+<<<<<<< HEAD
     "electron-log": "^5.1.1",
     "electron-store": "^8.1.0",
+=======
+<<<<<<< HEAD
+    "electron-log": "^5.1.1",
+    "electron-store": "^8.1.0",
+=======
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
     "vite": "^5.4.2"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CFSJ-DAN/affichagedynamique.git"
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
   }
 }

@@ -19,7 +19,11 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
+<<<<<<< HEAD
         run: npm install
+=======
+        run: npm ci
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
 
       - name: Build Vite
         run: npm run build

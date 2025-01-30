@@ -1,5 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
 const fs = require('fs');
 const log = require('electron-log');
 
@@ -16,6 +20,25 @@ const LOGS_PATH = path.join(BASE_PATH, 'logs');
 // Create necessary directories
 function ensureDirectoriesExist() {
   [BASE_PATH, CONTENT_PATH, DB_PATH, LOGS_PATH].forEach(dir => {
+<<<<<<< HEAD
+=======
+=======
+const Store = require('electron-store');
+const fs = require('fs');
+
+// Configuration du stockage local
+const store = new Store();
+
+// Chemin de base pour le stockage des fichiers
+const BASE_PATH = 'C:\\APPS\\affichagedynamique';
+const CONTENT_PATH = path.join(BASE_PATH, 'content');
+const DB_PATH = path.join(BASE_PATH, 'db');
+
+// Créer les répertoires nécessaires
+function ensureDirectoriesExist() {
+  [BASE_PATH, CONTENT_PATH, DB_PATH].forEach(dir => {
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
@@ -23,12 +46,25 @@ function ensureDirectoriesExist() {
 }
 
 function createWindow() {
+<<<<<<< HEAD
   log.info('Creating main window');
   
+=======
+<<<<<<< HEAD
+  log.info('Creating main window');
+  
+=======
+  // Créer la fenêtre principale
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
   const mainWindow = new BrowserWindow({
     width: 1920,
     height: 1080,
     webPreferences: {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
       nodeIntegration: false,
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.cjs'),
@@ -68,6 +104,59 @@ ipcMain.handle('save-media', async (event, { id, data }) => {
     return filePath;
   } catch (error) {
     log.error('Error saving media:', error);
+<<<<<<< HEAD
+=======
+=======
+      nodeIntegration: true,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.cjs')
+    },
+    fullscreen: true,
+    autoHideMenuBar: true,
+  });
+
+  // Charger l'application
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.loadURL('http://localhost:5173');
+  } else {
+    mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+  }
+
+  // Gérer les raccourcis clavier
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.key !== 'Escape') {
+      event.preventDefault();
+    }
+  });
+}
+
+app.whenReady().then(() => {
+  ensureDirectoriesExist();
+  createWindow();
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+// Gestionnaires IPC
+ipcMain.handle('save-media', async (event, { id, data }) => {
+  try {
+    const filePath = path.join(CONTENT_PATH, `${id}`);
+    await fs.promises.writeFile(filePath, Buffer.from(data, 'base64'));
+    return filePath;
+  } catch (error) {
+    console.error('Error saving media:', error);
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
     throw error;
   }
 });
@@ -77,7 +166,15 @@ ipcMain.handle('save-db', async (event, data) => {
     const dbPath = path.join(DB_PATH, 'local.json');
     await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
   } catch (error) {
+<<<<<<< HEAD
     log.error('Error saving DB:', error);
+=======
+<<<<<<< HEAD
+    log.error('Error saving DB:', error);
+=======
+    console.error('Error saving DB:', error);
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
     throw error;
   }
 });
@@ -88,6 +185,10 @@ ipcMain.handle('load-db', async () => {
     const data = await fs.promises.readFile(dbPath, 'utf8');
     return JSON.parse(data);
   } catch (error) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
     log.error('Error loading DB:', error);
     return null;
   }
@@ -113,4 +214,12 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
+<<<<<<< HEAD
+=======
+=======
+    console.error('Error loading DB:', error);
+    return null;
+  }
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
 });

@@ -18,14 +18,27 @@ const OfflinePlayer: React.FC<OfflinePlayerProps> = ({ screenId }) => {
     media: MediaItem[];
     lastSync: string;
   } | null>(null);
+<<<<<<< HEAD
   const [pairingCode, setPairingCode] = useState('');
   const [isPaired, setIsPaired] = useState(false);
   const [error, setError] = useState('');
+=======
+<<<<<<< HEAD
+  const [pairingCode, setPairingCode] = useState('');
+  const [isPaired, setIsPaired] = useState(false);
+  const [error, setError] = useState('');
+=======
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
 
   useEffect(() => {
     const loadLocalContent = async () => {
       const db = await localContent.loadLocalDB();
       setLocalDB(db);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
       
       // Vérifier si l'écran est déjà appairé
       const pairedCode = localStorage.getItem(`screen_${screenId}_pairing`);
@@ -100,6 +113,19 @@ const OfflinePlayer: React.FC<OfflinePlayerProps> = ({ screenId }) => {
 
   // Obtenir les playlists actives pour cet écran à l'heure actuelle
   const getCurrentPlaylists = () => {
+<<<<<<< HEAD
+=======
+=======
+    };
+    loadLocalContent();
+  }, []);
+
+  // Obtenir les playlists actives pour cet écran à l'heure actuelle
+  const getCurrentPlaylists = () => {
+    if (!localDB) return [];
+
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
     const now = new Date();
     const currentDay = now.getDay();
     const currentTime = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
@@ -124,6 +150,40 @@ const OfflinePlayer: React.FC<OfflinePlayerProps> = ({ screenId }) => {
   };
 
   useEffect(() => {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    // Activer le mode plein écran au démarrage
+    const enterFullscreen = async () => {
+      try {
+        if (document.documentElement.requestFullscreen) {
+          await document.documentElement.requestFullscreen();
+        }
+      } catch (error) {
+        console.error('Erreur lors du passage en plein écran:', error);
+      }
+    };
+    enterFullscreen();
+
+    // Désactiver toutes les interactions clavier sauf Échap
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') {
+        e.preventDefault();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!localDB) return;
+
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
     const activePlaylists = getCurrentPlaylists();
     if (activePlaylists.length === 0) {
       setCurrentMedia(null);
@@ -170,6 +230,13 @@ const OfflinePlayer: React.FC<OfflinePlayerProps> = ({ screenId }) => {
       const activePlaylists = getCurrentPlaylists();
       if (activePlaylists.length === 0) {
         setCurrentMedia(null);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        return;
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
       }
     };
 
@@ -177,6 +244,22 @@ const OfflinePlayer: React.FC<OfflinePlayerProps> = ({ screenId }) => {
     return () => clearInterval(interval);
   }, [screenId]);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  if (!localDB) {
+    return (
+      <div className="fixed inset-0 bg-black flex items-center justify-center">
+        <div className="text-white text-2xl">
+          Chargement du contenu local...
+        </div>
+      </div>
+    );
+  }
+
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
   if (!currentMedia) {
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center">
@@ -206,7 +289,15 @@ const OfflinePlayer: React.FC<OfflinePlayerProps> = ({ screenId }) => {
       >
         {currentMedia.type === 'image' && (
           <img
+<<<<<<< HEAD
             src={currentMedia.url}
+=======
+<<<<<<< HEAD
+            src={currentMedia.url}
+=======
+            src={currentMedia.url} // URL locale du fichier
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
             alt=""
             className="w-full h-full object-contain"
             style={{ userSelect: 'none' }}
@@ -215,7 +306,15 @@ const OfflinePlayer: React.FC<OfflinePlayerProps> = ({ screenId }) => {
         )}
         {currentMedia.type === 'video' && (
           <video
+<<<<<<< HEAD
             src={currentMedia.url}
+=======
+<<<<<<< HEAD
+            src={currentMedia.url}
+=======
+            src={currentMedia.url} // URL locale du fichier
+>>>>>>> d10a24af2e42d821006b0db9075c52072fddaadd
+>>>>>>> 7143f6c4c52e8933b9badb5fff168e9f569d8599
             autoPlay
             muted
             className="w-full h-full object-contain"
